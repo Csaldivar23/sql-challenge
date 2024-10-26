@@ -26,9 +26,9 @@ dept_manager.emp_no,
 employees.last_name,
 employees.first_name
 FROM dept_manager
-LEFT JOIN departments
+INNER JOIN departments
 ON dept_manager.dept_no = departments.dept_no
-LEFT JOIN employees
+INNER JOIN employees
 ON dept_manager.emp_no = employees.emp_no
 ORDER BY dept_no;
 
@@ -41,8 +41,10 @@ employees.last_name,
 employees.first_name,
 departments.dept_name
 FROM employees
-INNER JOIN dept_emp ON employees.emp_no = dept_emp.emp_no
-INNER JOIN departments ON departments.dept_no = dept_emp.dept_no
+INNER JOIN dept_emp
+ON employees.emp_no = dept_emp.emp_no
+INNER JOIN departments
+ON departments.dept_no = dept_emp.dept_no
 ORDER BY dept_no;
 
 -- List first name, last name, and sex of each employee whose first name is Hercules
